@@ -95,4 +95,40 @@
     </div>
 
   </div>
+
+  <!-- Modal de carte -->
+  <div class="card-modal" *ngIf="showCard && currentCard" (click)="closeCard()">
+    <div class="card-container" (click)="$event.stopPropagation()">
+      <ion-card class="game-card" [class.action-card]="currentCard.type === 'action'" [class.verite-card]="currentCard.type === 'verite'">
+        <ion-card-header>
+          <ion-card-title>
+            {{ currentCard.type === 'action' ? 'ACTION' : 'VÉRITÉ' }}
+            <span class="card-mode">{{ currentCard.mode.toUpperCase() }}</span>
+          </ion-card-title>
+        </ion-card-header>
+        
+        <ion-card-content>
+          <p class="card-description">{{ currentCard.description }}</p>
+          
+          <div class="card-details">
+            <div class="card-info" *ngIf="currentCard.timer">
+              ⏱️ {{ currentCard.timer }} secondes
+            </div>
+            <div class="card-info" *ngIf="currentCard.photoObligatoire">
+              📸 Photo obligatoire
+            </div>
+            <div class="card-info" *ngIf="!currentCard.repetable">
+              🚫 Non répétable
+            </div>
+          </div>
+        </ion-card-content>
+        
+        <div class="card-actions">
+          <ion-button expand="full" (click)="closeCard()" class="continue-button">
+            Continuer
+          </ion-button>
+        </div>
+      </ion-card>
+    </div>
+  </div>
 </ion-content>

@@ -175,6 +175,131 @@ ion-content {
   }
 }
 
+// Modal de carte
+.card-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.card-container {
+  width: 90%;
+  max-width: 400px;
+  animation: slideUp 0.3s ease;
+}
+
+.game-card {
+  margin: 0;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  
+  &.action-card {
+    border: 3px solid #4CAF50;
+    
+    ion-card-header {
+      background: linear-gradient(135deg, #4CAF50, #66BB6A);
+      color: white;
+    }
+  }
+  
+  &.verite-card {
+    border: 3px solid #2196F3;
+    
+    ion-card-header {
+      background: linear-gradient(135deg, #2196F3, #42A5F5);
+      color: white;
+    }
+  }
+  
+  ion-card-header {
+    text-align: center;
+    padding: 20px;
+    
+    ion-card-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      
+      .card-mode {
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 5px 10px;
+        border-radius: 10px;
+      }
+    }
+  }
+  
+  ion-card-content {
+    padding: 25px;
+    text-align: center;
+    
+    .card-description {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: #333;
+      margin: 0 0 20px 0;
+      font-weight: 600;
+    }
+    
+    .card-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      
+      .card-info {
+        background: #f5f5f5;
+        color: #666;
+        padding: 8px 12px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+    }
+  }
+  
+  .card-actions {
+    padding: 0 25px 25px 25px;
+    
+    .continue-button {
+      --background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+      --color: white;
+      --border-radius: 20px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      height: 50px;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 @media (max-width: 768px) {
   .players-grid {
     grid-template-columns: 1fr;
@@ -182,6 +307,16 @@ ion-content {
   
   .current-player-message h2 {
     font-size: 1.6rem;
+  }
+  
+  .card-container {
+    width: 95%;
+  }
+  
+  .game-card {
+    ion-card-content .card-description {
+      font-size: 1.1rem;
+    }
   }
 }
 
