@@ -56,6 +56,8 @@ export class HomePage {
   }
 
   startGame() {
-    this.router.navigate(['/mode']); // la page Mode sera créée ensuite
+    if (this.players.length >= 2) {
+      this.router.navigate(['/mode']);
+    }
   }
 }

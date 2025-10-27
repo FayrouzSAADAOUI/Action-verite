@@ -50,10 +50,10 @@
 
     <ion-button 
       expand="full" 
-      [disabled]="players.length === 0" 
+      [disabled]="players.length < 2" 
       (click)="startGame()"
       class="start-button">
-      {{ players.length === 0 ? 'Ajoutez des joueurs pour commencer' : 'Commencer le jeu (' + players.length + ' joueur' + (players.length > 1 ? 's' : '') + ')' }}
+      {{ players.length < 2 ? 'Ajoutez au moins 2 joueurs pour commencer' : 'Commencer le jeu (' + players.length + ' joueur' + (players.length > 1 ? 's' : '') + ')' }}
     </ion-button>
 
   </div>

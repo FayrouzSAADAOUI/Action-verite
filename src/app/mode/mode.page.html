@@ -1,0 +1,72 @@
+<ion-content>
+  <div class="logo-section">
+    <div class="logo-container">
+      <div class="logo-text">
+        <span class="mode-text">CHOISISSEZ</span>
+        <span class="votre-text">votre</span>
+        <span class="mode-text">MODE</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ion-padding">
+    
+    <div class="players-info">
+      <h3>{{ players.length }} joueur{{ players.length > 1 ? 's' : '' }} prêt{{ players.length > 1 ? 's' : '' }}</h3>
+    </div>
+
+    <div class="modes-section">
+      <ion-list>
+        <ion-card 
+          *ngFor="let mode of gameModes" 
+          class="mode-card"
+          [class.selected]="selectedMode === mode.id"
+          [class.premium]="mode.isPremium"
+          (click)="mode.isPremium ? showPremiumMessage() : selectMode(mode.id)"
+          [style.border-color]="mode.color">
+          
+          <ion-card-header>
+            <ion-card-title>
+              {{ mode.name }}
+              <span class="premium-badge" *ngIf="mode.isPremium">PREMIUM</span>
+            </ion-card-title>
+            <div class="intensity-badge" [style.background-color]="mode.color">
+              {{ mode.intensity }}
+            </div>
+          </ion-card-header>
+          
+          <ion-card-content>
+            <p>{{ mode.description }}</p>
+            <div class="premium-overlay" *ngIf="mode.isPremium">
+              <div class="lock-icon">🔒</div>
+              <p class="premium-text">Mode Premium</p>
+            </div>
+          </ion-card-content>
+          
+          <div class="selection-indicator" *ngIf="selectedMode === mode.id">
+            ✓ Sélectionné
+          </div>
+        </ion-card>
+      </ion-list>
+    </div>
+
+    <div class="actions-section">
+      <ion-button 
+        expand="full" 
+        fill="outline" 
+        (click)="goBack()"
+        class="back-button">
+        Retour
+      </ion-button>
+      
+      <ion-button 
+        expand="full" 
+        [disabled]="!selectedMode" 
+        (click)="startGame()"
+        class="start-button">
+        {{ selectedMode ? 'Commencer la partie' : 'Sélectionnez un mode' }}
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

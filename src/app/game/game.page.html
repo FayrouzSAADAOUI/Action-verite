@@ -1,0 +1,98 @@
+<ion-content>
+  <div class="game-header">
+    <div class="game-logo">
+      <h1>{{ gameMode.toUpperCase() }}</h1>
+      <p>{{ players.length }} joueurs</p>
+    </div>
+  </div>
+
+  <div class="ion-padding" *ngIf="!gameStarted">
+    <div class="start-section">
+      <h2>Prêt à jouer ?</h2>
+      <div class="players-grid">
+        <div class="player-card" 
+             *ngFor="let player of players; let i = index"
+             [class]="'player-color-' + (i % 6)">
+          <div class="player-avatar">
+            <span class="player-initial">{{ player.pseudo.charAt(0).toUpperCase() }}</span>
+          </div>
+          <div class="player-details">
+            <h3>{{ player.pseudo }}</h3>
+            <span class="player-genre">{{ player.genre }}</span>
+          </div>
+          <div class="player-number">{{ i + 1 }}</div>
+        </div>
+      </div>
+      
+      <ion-button 
+        expand="full" 
+        (click)="startGame()"
+        class="start-game-button">
+        Commencer la partie
+      </ion-button>
+      
+      <ion-button 
+        expand="full" 
+        fill="outline"
+        (click)="goBackToMode()"
+        class="back-button">
+        Changer de mode
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="ion-padding" *ngIf="gameStarted">
+    
+    <!-- Message simple pour le joueur actuel -->
+    <div class="current-player-message">
+      <h2>{{ currentPlayer.pseudo }}, c'est à toi !</h2>
+      <div class="player-status-info" *ngIf="consecutiveVerites > 0">
+        {{ consecutiveVerites }} vérité{{ consecutiveVerites > 1 ? 's' : '' }} consécutive{{ consecutiveVerites > 1 ? 's' : '' }}
+      </div>
+    </div>
+
+    <!-- Warning si obligation d'action -->
+    <div class="warning-section" *ngIf="mustChooseAction">
+      <ion-card class="warning-card">
+        <ion-card-header>
+          <ion-card-title>⚠️ OBLIGATION !</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Tu as fait 3 vérités consécutives, tu dois maintenant choisir une ACTION !
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- Choix Action/Vérité -->
+    <div class="choice-section">
+      <ion-button 
+        expand="full" 
+        (click)="chooseAction()"
+        class="action-button">
+        ACTION
+      </ion-button>
+      
+      <ion-button 
+        expand="full" 
+        [disabled]="mustChooseAction"
+        (click)="chooseVerite()"
+        class="verite-button"
+        [class.disabled]="mustChooseAction">
+        VÉRITÉ
+        <span *ngIf="mustChooseAction" class="disabled-text">(Bloqué)</span>
+      </ion-button>
+    </div>
+
+    <!-- Actions de jeu -->
+    <div class="game-actions">
+      <ion-button 
+        fill="outline" 
+        size="small"
+        (click)="goHome()"
+        class="quit-button">
+        Quitter la partie
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>
