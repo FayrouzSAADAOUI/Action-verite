@@ -1,0 +1,321 @@
+// Variables de couleurs orange
+:root {
+  --orange-primary: #ff6b35;
+  --orange-secondary: #ff8c42;
+  --orange-light: #ffb366;
+  --orange-dark: #e55a2b;
+  --orange-gradient: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+}
+
+ion-content {
+  --background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+}
+
+ion-header {
+  ion-toolbar {
+    --background: var(--orange-gradient);
+    --color: white;
+    
+    ion-title {
+      font-weight: bold;
+      font-size: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+  }
+}
+
+// Styles pour les items de formulaire
+ion-item {
+  --background: rgba(255, 255, 255, 0.9);
+  --border-radius: 12px;
+  margin: 10px 0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.15);
+  
+  ion-label {
+    color: var(--orange-dark);
+    font-weight: 600;
+  }
+  
+  ion-input, ion-select {
+    --color: #333;
+    --placeholder-color: #999;
+  }
+  
+  ion-select {
+    text-align: center;
+    --placeholder-text-align: center;
+  }
+}
+
+// Styles pour les boutons
+ion-button {
+  --border-radius: 25px;
+  margin: 15px 0;
+  font-weight: 600;
+  text-transform: none;
+  
+  &:not([fill="clear"]) {
+    --background: var(--orange-gradient);
+    --color: white;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+    }
+    
+    &[disabled] {
+      --background: #ccc;
+      box-shadow: none;
+    }
+  }
+  
+  &[color="danger"] {
+    --background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+    --color: white;
+  }
+}
+
+// Styles pour la liste des joueurs
+ion-list {
+  background: transparent;
+  padding: 20px 0;
+  
+  ion-item {
+    --background: rgba(255, 255, 255, 0.95);
+    margin: 8px 0;
+    border-left: 4px solid var(--orange-primary);
+    
+    &::part(native) {
+      padding-left: 20px;
+    }
+    
+    // Texte des joueurs
+    font-weight: 500;
+    color: #333;
+    
+    ion-button[color="danger"] {
+      --border-radius: 20px;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// Animation pour les éléments
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Section logo personnalisée
+.logo-section {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--orange-gradient);
+  margin: -20px -20px 30px -20px;
+  color: white;
+  border-radius: 0 0 30px 30px;
+  position: relative;
+  overflow: hidden;
+  
+  // Effet de brillance en arrière-plan
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+  }
+}
+
+.logo-container {
+  position: relative;
+  z-index: 2;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+  
+  .action-text {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-shadow: 
+      3px 3px 0px #e55a2b,
+      4px 4px 0px #d14d21,
+      5px 5px 0px #bd4017,
+      6px 6px 10px rgba(0,0,0,0.4);
+    color: #fff;
+    margin-bottom: -5px;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  
+  .ou-text {
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0.9;
+    margin: 5px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: pulse-text 3s ease-in-out infinite;
+  }
+  
+  .verite-text {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-shadow: 
+      3px 3px 0px #e55a2b,
+      4px 4px 0px #d14d21,
+      5px 5px 0px #bd4017,
+      6px 6px 10px rgba(0,0,0,0.4);
+    color: #fff;
+    margin-top: -5px;
+    animation: bounce 2s ease-in-out infinite 0.5s;
+  }
+}
+
+.logo-subtitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  opacity: 0.95;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  margin-top: 10px;
+  animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+// Animations
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes pulse-text {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 0.95;
+    transform: translateY(0);
+  }
+}
+
+// Section formulaire
+.form-section {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 25px;
+  border-radius: 20px;
+  margin: 20px 0;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.1);
+}
+
+// Section joueurs
+.players-section {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 25px;
+  border-radius: 20px;
+  margin: 20px 0;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.1);
+  
+  h2 {
+    color: var(--orange-dark);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+  }
+}
+
+// Bouton valider spécial
+.validate-button {
+  --background: linear-gradient(135deg, #ff4500 0%, #ff6347 50%, #ff7f50 100%) !important;
+  --color: white !important;
+  font-size: 1.1rem;
+  font-weight: bold;
+  height: 50px;
+  box-shadow: 0 6px 20px rgba(255, 69, 0, 0.4) !important;
+  
+  &:not([disabled]) {
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 69, 0, 0.5) !important;
+    }
+  }
+  
+  &[disabled] {
+    --background: #ccc !important;
+    box-shadow: none !important;
+  }
+}
+
+// Bouton de démarrage spécial
+.start-button {
+  --background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 50%, #ffb366 100%);
+  --color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  height: 60px;
+  margin: 30px 0 20px 0;
+  
+  &:not([disabled]) {
+    animation: pulse 2s infinite;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+  }
+  50% {
+    box-shadow: 0 6px 25px rgba(255, 107, 53, 0.6);
+  }
+  100% {
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+  }
+}

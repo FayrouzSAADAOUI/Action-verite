@@ -1,37 +1,60 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Action ou Vérité
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content class="ion-padding">
 
-  <ion-item>
-    <ion-label>Pseudo</ion-label>
-    <ion-input [(ngModel)]="pseudo" placeholder="Entrez votre pseudo"></ion-input>
-  </ion-item>
+<ion-content>
+  <div class="logo-section">
+    <div class="logo-container">
+      <div class="logo-text">
+        <span class="action-text">ACTION</span>
+        <span class="ou-text">ou</span>
+        <span class="verite-text">VÉRITÉ</span>
+      </div>
+    </div>
+  </div>
 
-  <ion-item>
-    <ion-label>Genre</ion-label>
-    <ion-select [(ngModel)]="genre">
-      <ion-select-option value="homme">Homme</ion-select-option>
-      <ion-select-option value="femme">Femme</ion-select-option>
-    </ion-select>
-  </ion-item>
+  <div class="ion-padding">
 
-  <ion-button expand="full" (click)="addPlayer()">Ajouter joueur</ion-button>
+    <div class="form-section fade-in">
+      <ion-item>
+        <ion-label>Pseudo</ion-label>
+        <ion-input [(ngModel)]="pseudo"></ion-input>
+      </ion-item>
 
-  <ion-list>
-    <ion-item *ngFor="let player of players; let i = index">
-      {{ player.pseudo }} - {{ player.genre }}
-      <ion-button fill="clear" color="danger" slot="end" (click)="removePlayer(i)">Supprimer</ion-button>
-    </ion-item>
-  </ion-list>
+      <ion-item>
+        <ion-label>Genre</ion-label>
+        <ion-select [(ngModel)]="genre" placeholder="Choisissez votre genre">
+          <ion-select-option value="homme">Homme</ion-select-option>
+          <ion-select-option value="femme">Femme</ion-select-option>
+        </ion-select>
+      </ion-item>
 
-  <ion-button expand="full" [disabled]="players.length === 0" (click)="startGame()">
-    Commencer le jeu
-  </ion-button>
+      <ion-button expand="full" (click)="addPlayer()" [disabled]="!pseudo || !genre" class="validate-button">
+        Valider
+      </ion-button>
+    </div>
 
+    <div class="players-section fade-in" *ngIf="players.length > 0">
+      <h2>Joueurs inscrits ({{ players.length }})</h2>
+      <ion-list>
+        <ion-item *ngFor="let player of players; let i = index" class="fade-in">
+          <div>
+            <strong>{{ player.pseudo }}</strong>
+            <br>
+            <small>{{ player.genre === 'homme' ? '👨 Homme' : '👩 Femme' }}</small>
+          </div>
+          <ion-button fill="clear" color="danger" slot="end" (click)="removePlayer(i)">
+            Supprimer
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <ion-button 
+      expand="full" 
+      [disabled]="players.length === 0" 
+      (click)="startGame()"
+      class="start-button">
+      🚀 {{ players.length === 0 ? 'Ajoutez des joueurs pour commencer' : 'Commencer le jeu (' + players.length + ' joueur' + (players.length > 1 ? 's' : '') + ')' }}
+    </ion-button>
+
+  </div>
 </ion-content>
