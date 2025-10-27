@@ -1,28 +1,8 @@
-// Variables de couleurs orange
-:root {
-  --orange-primary: #ff6b35;
-  --orange-secondary: #ff8c42;
-  --orange-light: #ffb366;
-  --orange-dark: #e55a2b;
-  --orange-gradient: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
-}
-
 ion-content {
   --background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
 }
 
-ion-header {
-  ion-toolbar {
-    --background: var(--orange-gradient);
-    --color: white;
-    
-    ion-title {
-      font-weight: bold;
-      font-size: 1.5rem;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-  }
-}
+
 
 // Styles pour les items de formulaire
 ion-item {
@@ -48,32 +28,19 @@ ion-item {
   }
 }
 
-// Styles pour les boutons
 ion-button {
   --border-radius: 25px;
   margin: 15px 0;
   font-weight: 600;
-  text-transform: none;
   
   &:not([fill="clear"]) {
-    --background: var(--orange-gradient);
+    --background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
     --color: white;
     box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-    
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
-    }
-    
-    &[disabled] {
-      --background: #ccc;
-      box-shadow: none;
-    }
   }
   
   &[color="danger"] {
     --background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
-    --color: white;
   }
 }
 
@@ -102,21 +69,7 @@ ion-list {
   }
 }
 
-// Animation pour les éléments
-.fade-in {
-  animation: fadeIn 0.5s ease-in;
-}
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 // Section logo personnalisée
 .logo-section {

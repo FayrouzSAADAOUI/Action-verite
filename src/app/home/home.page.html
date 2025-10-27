@@ -39,7 +39,7 @@
           <div>
             <strong>{{ player.pseudo }}</strong>
             <br>
-            <small>{{ player.genre === 'homme' ? '👨 Homme' : '👩 Femme' }}</small>
+            <small>{{ player.genre === 'homme' ? 'Homme' : 'Femme' }}</small>
           </div>
           <ion-button fill="clear" color="danger" slot="end" (click)="removePlayer(i)">
             Supprimer
@@ -53,7 +53,7 @@
       [disabled]="players.length === 0" 
       (click)="startGame()"
       class="start-button">
-      🚀 {{ players.length === 0 ? 'Ajoutez des joueurs pour commencer' : 'Commencer le jeu (' + players.length + ' joueur' + (players.length > 1 ? 's' : '') + ')' }}
+      {{ players.length === 0 ? 'Ajoutez des joueurs pour commencer' : 'Commencer le jeu (' + players.length + ' joueur' + (players.length > 1 ? 's' : '') + ')' }}
     </ion-button>
 
   </div>
