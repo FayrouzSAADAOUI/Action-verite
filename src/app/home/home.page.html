@@ -1,5 +1,3 @@
-
-
 <ion-content>
   <div class="logo-section">
     <div class="logo-container">
@@ -16,44 +14,67 @@
     <div class="form-section fade-in">
       <ion-item>
         <ion-label>Pseudo</ion-label>
-        <ion-input [(ngModel)]="pseudo"></ion-input>
+        <ion-input
+          [(ngModel)]="pseudo"
+          placeholder="Tapez votre pseudo"
+          [maxlength]="20">
+        </ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label>Genre</ion-label>
-        <ion-select [(ngModel)]="genre" placeholder="Choisissez votre genre">
-          <ion-select-option value="homme">Homme</ion-select-option>
-          <ion-select-option value="femme">Femme</ion-select-option>
+        <ion-label>Gender</ion-label>
+        <ion-select
+          [(ngModel)]="genre"
+          placeholder="Choisissez votre genre"
+          interface="popover">
+          <ion-select-option value="homme">{{ playerGender.male }}</ion-select-option>
+          <ion-select-option value="femme">{{ playerGender.female }}</ion-select-option>
         </ion-select>
       </ion-item>
 
-      <ion-button expand="full" (click)="addPlayer()" [disabled]="!pseudo || !genre" class="validate-button">
-        Valider
+      <ion-button
+        expand="full"
+        (click)="addPlayer()"
+        [disabled]="!pseudo || !genre"
+        class="validate-button">
+        Ajoutez un joueur
       </ion-button>
     </div>
 
-    <div class="players-section fade-in" *ngIf="players.length > 0">
-      <h2>Joueurs inscrits ({{ players.length }})</h2>
-      <ion-list>
-        <ion-item *ngFor="let player of players; let i = index" class="fade-in">
-          <div>
-            <strong>{{ player.pseudo }}</strong>
-            <br>
-            <small>{{ player.genre === 'homme' ? 'Homme' : 'Femme' }}</small>
-          </div>
-          <ion-button fill="clear" color="danger" slot="end" (click)="removePlayer(i)">
-            Supprimer
-          </ion-button>
-        </ion-item>
-      </ion-list>
-    </div>
+    @if (players.length > 0) {
+      <div class="players-section fade-in">
+        <h2>Joueurs enregistrés ({{ players.length }})</h2>
+        <ion-list>
+          @for (player of players; track player.id; let i = $index) {
+            <ion-item class="fade-in">
+              <div>
+                <strong>{{ player.name }}</strong>
+                <br>
+                <small>{{ player.gender }}</small>
+              </div>
+              <ion-button
+                fill="clear"
+                color="danger"
+                slot="end"
+                (click)="removePlayer(i)">
+                Retirer
+              </ion-button>
+            </ion-item>
+          }
+        </ion-list>
+      </div>
+    }
 
-    <ion-button 
-      expand="full" 
-      [disabled]="players.length === 0" 
+    <ion-button
+      expand="full"
+      [disabled]="players.length < 2"
       (click)="startGame()"
       class="start-button">
-      {{ players.length === 0 ? 'Ajoutez des joueurs pour commencer' : 'Commencer le jeu (' + players.length + ' joueur' + (players.length > 1 ? 's' : '') + ')' }}
+      @if (players.length < 2) {
+        Ajoutez des joueurs pour démarrer la partie
+      } @else {
+        Démarrer la partie ({{ players.length }} joueurs)
+      }
     </ion-button>
 
   </div>
