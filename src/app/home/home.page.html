@@ -16,7 +16,16 @@
     <div class="form-section fade-in">
       <ion-item>
         <ion-label>Pseudo</ion-label>
-        <ion-input [(ngModel)]="pseudo"></ion-input>
+        <ion-input 
+          [(ngModel)]="pseudo" 
+          type="text"
+          autocomplete="name"
+          inputmode="text"
+          enterkeyhint="done"
+          clearInput="true"
+          (ionFocus)="onInputFocus()"
+          #pseudoInput>
+        </ion-input>
       </ion-item>
 
       <ion-item>

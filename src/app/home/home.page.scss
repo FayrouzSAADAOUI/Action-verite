@@ -1,5 +1,6 @@
 ion-content {
   --background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  --padding-top: 0;
 }
 
 
@@ -71,16 +72,19 @@ ion-list {
 
 
 
-// Section logo personnalisée
+// Section logo personnalisée avec adaptation aux encoches
 .logo-section {
   text-align: center;
-  padding: 40px 20px;
+  padding: 40px 20px 40px 20px;
+  padding-top: calc(40px + env(safe-area-inset-top));
   background: var(--orange-gradient);
   margin: -20px -20px 30px -20px;
+  margin-top: calc(-20px - env(safe-area-inset-top));
   color: white;
   border-radius: 0 0 30px 30px;
   position: relative;
   overflow: hidden;
+  min-height: calc(120px + env(safe-area-inset-top));
   
   // Effet de brillance en arrière-plan
   &::before {
@@ -107,40 +111,40 @@ ion-list {
   margin-bottom: 15px;
   
   .action-text {
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 8vw, 3rem);
     font-weight: 900;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-shadow: 
-      3px 3px 0px #e55a2b,
-      4px 4px 0px #d14d21,
-      5px 5px 0px #bd4017,
-      6px 6px 10px rgba(0,0,0,0.4);
+      2px 2px 0px #e55a2b,
+      3px 3px 0px #d14d21,
+      4px 4px 0px #bd4017,
+      5px 5px 8px rgba(0,0,0,0.4);
     color: #fff;
-    margin-bottom: -5px;
+    margin-bottom: -3px;
     animation: bounce 2s ease-in-out infinite;
   }
   
   .ou-text {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
     font-weight: 400;
     font-style: italic;
     opacity: 0.9;
-    margin: 5px 0;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin: 3px 0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
     animation: pulse-text 3s ease-in-out infinite;
   }
   
   .verite-text {
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 8vw, 3rem);
     font-weight: 900;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-shadow: 
-      3px 3px 0px #e55a2b,
-      4px 4px 0px #d14d21,
-      5px 5px 0px #bd4017,
-      6px 6px 10px rgba(0,0,0,0.4);
+      2px 2px 0px #e55a2b,
+      3px 3px 0px #d14d21,
+      4px 4px 0px #bd4017,
+      5px 5px 8px rgba(0,0,0,0.4);
     color: #fff;
-    margin-top: -5px;
+    margin-top: -3px;
     animation: bounce 2s ease-in-out infinite 0.5s;
   }
 }
@@ -270,5 +274,55 @@ ion-list {
   }
   100% {
     box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+  }
+}
+
+// Media queries pour l'adaptation mobile
+@media screen and (max-width: 480px) {
+  .logo-section {
+    padding: 30px 15px 30px 15px;
+    padding-top: calc(30px + env(safe-area-inset-top));
+    min-height: calc(100px + env(safe-area-inset-top));
+  }
+  
+  .logo-text {
+    .action-text, .verite-text {
+      font-size: clamp(1.8rem, 10vw, 2.5rem);
+      letter-spacing: 1px;
+    }
+    
+    .ou-text {
+      font-size: clamp(1rem, 5vw, 1.3rem);
+      margin: 2px 0;
+    }
+  }
+}
+
+// Adaptation spéciale pour les appareils avec encoches
+@media screen and (min-width: 375px) and (max-width: 430px) and (min-height: 800px) {
+  .logo-section {
+    padding-top: calc(50px + env(safe-area-inset-top));
+    min-height: calc(140px + env(safe-area-inset-top));
+  }
+}
+
+// Support pour les orientations paysage
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  .logo-section {
+    padding: 20px 15px 20px 15px;
+    padding-top: calc(20px + env(safe-area-inset-top));
+    min-height: calc(80px + env(safe-area-inset-top));
+  }
+  
+  .logo-text {
+    margin-bottom: 10px;
+    
+    .action-text, .verite-text {
+      font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+    
+    .ou-text {
+      font-size: clamp(0.9rem, 3vw, 1.2rem);
+    }
   }
 }

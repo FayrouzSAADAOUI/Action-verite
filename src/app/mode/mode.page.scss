@@ -1,25 +1,25 @@
 ion-content {
   --background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  --padding-top: 0;
 }
 
-// Section logo 
 .logo-section {
   text-align: center;
-  padding: 40px 20px;
+  padding: 40px 20px 40px 20px;
+  padding-top: calc(40px + env(safe-area-inset-top));
   background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
   margin: -20px -20px 30px -20px;
+  margin-top: calc(-20px - env(safe-area-inset-top));
   color: white;
   border-radius: 0 0 30px 30px;
   position: relative;
   overflow: hidden;
+  min-height: calc(120px + env(safe-area-inset-top));
   
   &::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    inset: -50%;
     background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
     animation: rotate 20s linear infinite;
   }
@@ -249,25 +249,7 @@ ion-content {
   }
 }
 
-// Animations
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(-8px); }
-  60% { transform: translateY(-4px); }
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 6px 20px rgba(255, 69, 0, 0.4); }
-  50% { box-shadow: 0 8px 30px rgba(255, 69, 0, 0.6); }
-  100% { box-shadow: 0 6px 20px rgba(255, 69, 0, 0.4); }
-}
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-8px); } 60% { transform: translateY(-4px); } }
+@keyframes pulse { 0%, 100% { box-shadow: 0 6px 20px rgba(255, 69, 0, 0.4); } 50% { box-shadow: 0 8px 30px rgba(255, 69, 0, 0.6); } }

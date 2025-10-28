@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Keyboard, KeyboardStyle } from '@capacitor/keyboard';
+import { Capacitor } from '@capacitor/core';
 import { 
   IonContent, 
   IonItem, 
@@ -30,7 +32,7 @@ import {
     IonList
   ],
 })
-export class HomePage {
+export class HomePage implements AfterViewInit {
   pseudo: string = '';
   genre: string = '';
   players: { pseudo: string; genre: string }[] = [];
@@ -39,6 +41,24 @@ export class HomePage {
     // Charger les joueurs depuis le localStorage
     const storedPlayers = localStorage.getItem('players');
     if (storedPlayers) this.players = JSON.parse(storedPlayers);
+  }
+
+  ngAfterViewInit() {
+    // Configuration du clavier pour mobile
+    if (Capacitor.isNativePlatform()) {
+      Keyboard.setAccessoryBarVisible({ isVisible: true });
+      Keyboard.setScroll({ isDisabled: false });
+      Keyboard.setStyle({ style: KeyboardStyle.Light });
+    }
+  }
+
+  onInputFocus() {
+    // Forcer l'affichage du clavier sur mobile
+    if (Capacitor.isNativePlatform()) {
+      setTimeout(() => {
+        Keyboard.show();
+      }, 100);
+    }
   }
 
   addPlayer() {

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Couleurs du thème Action ou Vérité -->
+    <color name="colorPrimary">#ff6b35</color>
+    <color name="colorPrimaryDark">#e55a2b</color>
+    <color name="colorAccent">#ff8c42</color>
+    
+    <!-- Couleurs système pour intégration parfaite -->
+    <color name="statusBarColor">#ff6b35</color>
+    <color name="navigationBarColor">#ff6b35</color>
+</resources>
