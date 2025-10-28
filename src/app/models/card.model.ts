@@ -1,8 +1,4 @@
-export enum cardPlayerGender {
-  male = 'Homme',
-  female = 'Femme',
-  all = 'Tous'
-}
+import {PlayerGender} from "./player.model";
 
 export enum cardType {
   action = 'action',
@@ -15,8 +11,8 @@ export interface Card {
   type: string;
   cardType: cardType;
   description: string;
-  player1Gender: cardPlayerGender;
-  player2Gender?: cardPlayerGender; // Optional, for cards requiring a second player
+  player1Gender: PlayerGender;
+  player2Gender?: PlayerGender; // Optional, for cards requiring a second player
   timer?: number;
   isRepeatable: boolean; // Can be played multiple times
   requiresPhoto: boolean; // If true, must take a photo to validate the card

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +14,8 @@ import {
   AlertController
 } from '@ionic/angular/standalone';
 import { v4 as uuidv4 } from 'uuid';
-import { Player, playerGender } from '../models/player.model';
+import { Player, PlayerGender } from '../models/player.model';
+import {GameService} from "../services/game-service";
 
 @Component({
   selector: 'app-home',
@@ -34,37 +35,30 @@ import { Player, playerGender } from '../models/player.model';
   ],
 })
 export class HomePage implements OnInit {
+
+  private gameService = inject(GameService);
+  private router = inject(Router);
+  private alertController = inject(AlertController);
+
+  protected readonly playerGender = PlayerGender;
+
   pseudo: string = '';
   genre: string = '';
   players: Player[] = [];
 
-  constructor(
-    private router: Router,
-    private alertController: AlertController
-  ) {}
-
   ngOnInit() {
     this.loadPlayers();
+    this.gameService.players$.subscribe(players => {
+      this.players = players;
+    })
   }
 
   private loadPlayers() {
     try {
-      const storedPlayers = localStorage.getItem('players');
-      if (storedPlayers) {
-        this.players = JSON.parse(storedPlayers);
-      }
+      this.players = this.gameService.getPlayers();
     } catch (error) {
       console.error('Error loading players from storage:', error);
       this.players = [];
-    }
-  }
-
-  private savePlayers() {
-    try {
-      localStorage.setItem('players', JSON.stringify(this.players));
-    } catch (error) {
-      console.error('Error saving players to storage:', error);
-      this.showError('Problème technique lors de la sauvegarde du joueur');
     }
   }
 
@@ -83,23 +77,19 @@ export class HomePage implements OnInit {
     const newPlayer: Player = {
       id: uuidv4(),
       name: this.pseudo,
-      gender: this.genre === 'homme' ? playerGender.male : playerGender.female,
+      gender: this.genre === 'homme' ? PlayerGender.male : PlayerGender.female,
       playerCardIds: []
     };
 
-    this.players.push(newPlayer);
-    this.savePlayers();
+    this.gameService.addPlayer(newPlayer);
 
     // Reset form
     this.pseudo = '';
     this.genre = '';
   }
 
-  removePlayer(index: number) {
-    if (index >= 0 && index < this.players.length) {
-      this.players.splice(index, 1);
-      this.savePlayers();
-    }
+  removePlayer(playerId: string) {
+    this.gameService.removePlayer(playerId);
   }
 
   async startGame() {
@@ -123,5 +113,7 @@ export class HomePage implements OnInit {
     await alert.present();
   }
 
-  protected readonly playerGender = playerGender;
+  removeAllPlayers() {
+    this.gameService.clearPlayers();
+  }
 }

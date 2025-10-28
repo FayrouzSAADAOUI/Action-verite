@@ -1,0 +1,384 @@
+{
+  "cards": [
+    {
+      "id": "classic_truth_1",
+      "mode": "classic",
+      "type": "truth",
+      "cardType": "truth",
+      "description": "Player1 doit révéler son moment le plus embarrassant",
+      "player1Gender": "Tous",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "classic_truth_2",
+      "mode": "classic",
+      "type": "truth",
+      "cardType": "truth",
+      "description": "Player1 doit avouer son plus gros mensonge",
+      "player1Gender": "Tous",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "classic_truth_3",
+      "mode": "classic",
+      "type": "truth",
+      "cardType": "truth",
+      "description": "Player1 doit dire qui Player1 trouve le plus attirant(e) dans ce groupe",
+      "player1Gender": "Tous",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "classic_truth_4",
+      "mode": "classic",
+      "type": "truth",
+      "cardType": "truth",
+      "description": "Player1 doit révéler son dernier message envoyé",
+      "player1Gender": "Tous",
+      "isRepeatable": true,
+      "requiresPhoto": false
+    },
+    {
+      "id": "classic_truth_5",
+      "mode": "classic",
+      "type": "truth",
+      "cardType": "truth",
+      "description": "Player1 doit dire quel est son plus grand regret",
+      "player1Gender": "Tous",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "classic_action_1",
+      "mode": "classic",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit danser avec Player2 pendant 30 secondes",
+      "player1Gender": "Tous",
+      "player2Gender": "Tous",
+      "timer": 30,
+      "isRepeatable": false,
+      "requiresPhoto": true
+    },
+    {
+      "id": "classic_action_2",
+      "mode": "classic",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit imiter Player2 pendant 1 minute",
+      "player1Gender": "Tous",
+      "player2Gender": "Tous",
+      "timer": 60,
+      "isRepeatable": true,
+      "requiresPhoto": false
+    },
+    {
+      "id": "classic_action_3",
+      "mode": "classic",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit faire 20 pompes",
+      "player1Gender": "Tous",
+      "isRepeatable": true,
+      "requiresPhoto": false
+    },
+    {
+      "id": "classic_action_4",
+      "mode": "classic",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit parler avec un accent étranger pendant 2 minutes",
+      "player1Gender": "Tous",
+      "timer": 120,
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "classic_action_5",
+      "mode": "classic",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit faire un compliment sincère à Player2",
+      "player1Gender": "Tous",
+      "player2Gender": "Tous",
+      "isRepeatable": true,
+      "requiresPhoto": false
+    },
+    {
+      "id": "party_truth_1",
+      "mode": "party",
+      "type": "truth",
+      "cardType": "truth",
+      "description": "Player1 doit révéler la chose la plus folle qu'il/elle ait faite en soirée",
+      "player1Gender": "Tous",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "party_truth_2",
+      "mode": "party",
+      "type": "truth",
+      "cardType": "truth",
+      "description": "Player1 doit avouer avec qui Player1 voudrait s'enfermer dans un placard",
+      "player1Gender": "Tous",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "party_truth_3",
+      "mode": "party",
+      "type": "truth",
+      "cardType": "truth",
+      "description": "Player1 doit décrire son pire lendemain de soirée",
+      "player1Gender": "Tous",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "party_truth_4",
+      "mode": "party",
+      "type": "truth",
+      "cardType": "truth",
+      "description": "Player1 doit révéler son coup de cœur secret dans ce groupe",
+      "player1Gender": "Tous",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "party_truth_5",
+      "mode": "party",
+      "type": "truth",
+      "cardType": "truth",
+      "description": "Player1 doit dire combien de personnes Player1 a déjà embrassées",
+      "player1Gender": "Tous",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "party_action_1",
+      "mode": "party",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit chanter sa chanson préférée à tue-tête",
+      "player1Gender": "Tous",
+      "timer": 45,
+      "isRepeatable": false,
+      "requiresPhoto": true
+    },
+    {
+      "id": "party_action_2",
+      "mode": "party",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit faire un slow avec Player2",
+      "player1Gender": "Tous",
+      "player2Gender": "Tous",
+      "timer": 60,
+      "isRepeatable": false,
+      "requiresPhoto": true
+    },
+    {
+      "id": "party_action_3",
+      "mode": "party",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit boire un verre cul sec",
+      "player1Gender": "Tous",
+      "isRepeatable": true,
+      "requiresPhoto": false
+    },
+    {
+      "id": "party_action_4",
+      "mode": "party",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit faire le moonwalk",
+      "player1Gender": "Tous",
+      "isRepeatable": true,
+      "requiresPhoto": true
+    },
+    {
+      "id": "party_action_5",
+      "mode": "party",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit raconter une blague et faire rire Player2",
+      "player1Gender": "Tous",
+      "player2Gender": "Tous",
+      "isRepeatable": true,
+      "requiresPhoto": false
+    },
+    {
+      "id": "party_action_6",
+      "mode": "party",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit faire un bisou sur la joue à Player2",
+      "player1Gender": "Tous",
+      "player2Gender": "Tous",
+      "isRepeatable": false,
+      "requiresPhoto": true
+    },
+    {
+      "id": "extreme_truth_1",
+      "mode": "extreme",
+      "type": "truth",
+      "cardType": "truth",
+      "description": "Player1 doit révéler son plus grand secret inavouable",
+      "player1Gender": "Tous",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "extreme_truth_2",
+      "mode": "extreme",
+      "type": "truth",
+      "cardType": "truth",
+      "description": "Player1 doit avouer la chose la plus embarrassante de son historique de navigation",
+      "player1Gender": "Tous",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "extreme_truth_3",
+      "mode": "extreme",
+      "type": "truth",
+      "cardType": "truth",
+      "description": "Player1 doit révéler avec qui Player1 a eu un fantasme récemment",
+      "player1Gender": "Tous",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "extreme_truth_4",
+      "mode": "extreme",
+      "type": "truth",
+      "cardType": "truth",
+      "description": "Player1 doit lire à voix haute son dernier message privé le plus gênant",
+      "player1Gender": "Tous",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "extreme_truth_5",
+      "mode": "extreme",
+      "type": "truth",
+      "cardType": "truth",
+      "description": "Player1 doit révéler la personne qu'il/elle voudrait voir nu(e) dans ce groupe",
+      "player1Gender": "Tous",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "extreme_action_1",
+      "mode": "extreme",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit faire un strip-tease pendant 30 secondes",
+      "player1Gender": "Tous",
+      "timer": 30,
+      "isRepeatable": false,
+      "requiresPhoto": true
+    },
+    {
+      "id": "extreme_action_2",
+      "mode": "extreme",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit embrasser Player2 sur la bouche",
+      "player1Gender": "Tous",
+      "player2Gender": "Tous",
+      "isRepeatable": false,
+      "requiresPhoto": true
+    },
+    {
+      "id": "extreme_action_3",
+      "mode": "extreme",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit faire un massage sensuel à Player2 pendant 2 minutes",
+      "player1Gender": "Tous",
+      "player2Gender": "Tous",
+      "timer": 120,
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "extreme_action_4",
+      "mode": "extreme",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit enlever un vêtement de son choix",
+      "player1Gender": "Tous",
+      "isRepeatable": true,
+      "requiresPhoto": true
+    },
+    {
+      "id": "extreme_action_5",
+      "mode": "extreme",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit faire un lap dance à Player2 pendant 1 minute",
+      "player1Gender": "Tous",
+      "player2Gender": "Tous",
+      "timer": 60,
+      "isRepeatable": false,
+      "requiresPhoto": true
+    },
+    {
+      "id": "extreme_action_6",
+      "mode": "extreme",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit lécher le cou de Player2",
+      "player1Gender": "Tous",
+      "player2Gender": "Tous",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "classic_action_male_1",
+      "mode": "classic",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit faire une déclaration d'amour romantique à Player2",
+      "player1Gender": "Homme",
+      "player2Gender": "Femme",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "classic_action_female_1",
+      "mode": "classic",
+      "type": "action",
+      "cardType": "action",
+      "description": "Player1 doit faire tourner sa tête façon shampoing publicitaire",
+      "player1Gender": "Femme",
+      "timer": 15,
+      "isRepeatable": true,
+      "requiresPhoto": true
+    },
+    {
+      "id": "party_truth_male_1",
+      "mode": "party",
+      "type": "truth",
+      "cardType": "truth",
+      "description": "Player1 doit révéler quel sport extrême il aimerait pratiquer nu",
+      "player1Gender": "Homme",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    },
+    {
+      "id": "party_truth_female_1",
+      "mode": "party",
+      "type": "truth",
+      "cardType": "truth",
+      "description": "Player1 doit révéler son type d'homme idéal physiquement",
+      "player1Gender": "Femme",
+      "isRepeatable": false,
+      "requiresPhoto": false
+    }
+  ]
+}

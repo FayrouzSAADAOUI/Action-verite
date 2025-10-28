@@ -45,7 +45,7 @@
       <div class="players-section fade-in">
         <h2>Joueurs enregistrés ({{ players.length }})</h2>
         <ion-list>
-          @for (player of players; track player.id; let i = $index) {
+          @for (player of players; track player.id;) {
             <ion-item class="fade-in">
               <div>
                 <strong>{{ player.name }}</strong>
@@ -56,12 +56,18 @@
                 fill="clear"
                 color="danger"
                 slot="end"
-                (click)="removePlayer(i)">
+                (click)="removePlayer(player.id)">
                 Retirer
               </ion-button>
             </ion-item>
           }
         </ion-list>
+        <ion-button
+          expand="full"
+          color="danger"
+          (click)="removeAllPlayers()">
+          Supprimer tous les joueurs
+        </ion-button>
       </div>
     }
 
